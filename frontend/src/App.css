@@ -1,0 +1,17 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  background-color: #ecf0f1;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.bg-color {
+  min-height: 100vh;
+  background: linear-gradient(135deg, cyan, blue);
+  padding-bottom: 40px;
+}
