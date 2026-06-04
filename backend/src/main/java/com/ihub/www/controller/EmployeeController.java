@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ihub.www.model.Employee;
 import com.ihub.www.service.EmployeeService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
