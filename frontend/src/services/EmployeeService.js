@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const EMPLOYEE_API = "http://localhost:9191/api/v1/employees";
+const EMPLOYEE_API = "https://ravishing-ambition-production-5ef5.up.railway.app/api/v1/employees";
 
 class EmployeeService {
   addEmployee(employee) {

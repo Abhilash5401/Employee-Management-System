@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const AUTH_API = "http://localhost:9191/api/auth/login";
+const AUTH_API = "https://ravishing-ambition-production-5ef5.up.railway.app/api/auth/login";
 
 class AuthService {
   login(user) {
