@@ -20,7 +20,16 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("/login")
-    public boolean login(@RequestBody Map<String, String> data) {
+    public Map<String, Object> login(@RequestBody Map<String, String> data) {
         return authService.login(data.get("username"), data.get("password"));
+    }
+
+    @PostMapping("/register")
+    public Map<String, Object> register(@RequestBody Map<String, String> data) {
+        return authService.register(
+            data.get("username"),
+            data.get("password"),
+            data.get("secretKey")
+        );
     }
 }

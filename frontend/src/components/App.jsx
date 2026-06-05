@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
-import Register from "./components/Register";
 import Footer from "./components/Footer";
 import CreateEmployee from "./components/CreateEmployee";
 import EmployeeList from "./components/EmployeeList";
@@ -33,9 +32,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          {/* Public routes */}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
 
           {/* Admin only routes */}
           <Route path="/" element={<AdminRoute><EmployeeList /></AdminRoute>} />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import AuthService from '../services/AuthService';
 
 function Login() {
@@ -18,16 +18,23 @@ function Login() {
     setError("");
     AuthService.login(user)
       .then(res => {
-        if (res.data === true) {
+        const data = res.data;
+        if (data.success) {
           localStorage.setItem("logged", "true");
-          navigate("/");
+          localStorage.setItem("role", data.role);
+          localStorage.setItem("name", data.name);
+
+          if (data.role === "ADMIN") {
+            navigate("/");
+          } else if (data.role === "EMPLOYEE") {
+            localStorage.setItem("employeeId", data.employeeId);
+            navigate("/my-profile");
+          }
         } else {
           setError("Invalid Username or Password.");
         }
       })
-      .catch(() => {
-        setError("Server error. Please try again.");
-      })
+      .catch(() => setError("Server error. Please try again."))
       .finally(() => setLoading(false));
   };
 
@@ -63,6 +70,10 @@ function Login() {
           >
             {loading ? "Logging in..." : "Login"}
           </button>
+
+          <div className="text-center mt-3">
+            <small>Are you an admin? <Link to="/register">Create Admin Account</Link></small>
+          </div>
         </form>
       </div>
     </div>

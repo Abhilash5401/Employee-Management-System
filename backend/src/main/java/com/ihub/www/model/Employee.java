@@ -37,4 +37,10 @@ public class Employee {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dept_fk")
     private Department dept;
+
+    @Column(unique = true)
+    private String username;
+
+    @Column
+    private String password;
 }
